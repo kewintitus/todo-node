@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { TaskService } from './tasks.service';
 import { CreateTaskDTO } from './dto/CreateTask.dto';
 import { UpdateTaskDTO } from './dto/UpdateTask.dto';
@@ -10,22 +18,38 @@ export class TasksController {
 
   @Post()
   createTask(@Body() createTaskDTO: CreateTaskDTO) {
-    console.log(createTaskDTO);
-    return this.tasksService.createTask(createTaskDTO);
+    try {
+      console.log(createTaskDTO);
+      return this.tasksService.createTask(createTaskDTO);
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 
   @Get()
   getTasks() {
-    return this.tasksService.getTasks();
+    try {
+      return this.tasksService.getTasks();
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 
   @Patch()
   updateTask(@Body() updateTaskDTO: UpdateTaskDTO) {
-    return this.tasksService.updateTask(updateTaskDTO);
+    try {
+      return this.tasksService.updateTask(updateTaskDTO);
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 
   @Delete()
-  deleteTask(@Body() deleteTaskDTO: DeleteTaskDTO) {
-    return this.tasksService.deleteTask(deleteTaskDTO);
+  deleteTask(@Query() deleteTaskDTO: DeleteTaskDTO) {
+    try {
+      return this.tasksService.deleteTask(deleteTaskDTO);
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 }

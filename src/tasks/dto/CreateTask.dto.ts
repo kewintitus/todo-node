@@ -9,8 +9,8 @@ export class CreateTaskDTO {
   @IsString()
   description: string;
 
-  //   createdOn?: Date;
-  //   modifiedOn?: Date;
+  createdOn?: Date;
+  modifiedOn?: Date;
   //   status?: string;
   //   isActive?: boolean;
 }
