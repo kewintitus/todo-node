@@ -27,10 +27,16 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
+### Step 1 Clone or Download zip file
 
+### Step 2 Install dependencies
 ```bash
 $ npm install
 ```
+### Step 3 Create a .env file
+![image](https://github.com/kewintitus/todo-node/assets/96645509/5b3d7010-a654-4db6-a3b2-031ef1f01650)
+
+### Step 4 Add the env variables (shared through mail)
 
 ## Running the app
 
